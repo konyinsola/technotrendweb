@@ -1,151 +1,166 @@
+import { contactPageContent, siteConfig } from '@/lib/site';
+
+const contactMethods = [
+  {
+    label: 'Address',
+    value: siteConfig.contact.address,
+    icon: '📍',
+  },
+  {
+    label: 'Email',
+    value: siteConfig.contact.email,
+    icon: '✉️',
+  },
+  {
+    label: 'Phone',
+    value: siteConfig.contact.phone,
+    icon: '📞',
+  },
+] as const;
+
 export default function Contact() {
+  const formAction = `mailto:${siteConfig.contact.email}`;
+
   return (
-    <section className=" px-6 py-12">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        {/* Left */}
+    <section className="px-6 py-12">
+      <div className="mx-auto grid max-w-6xl items-start gap-16 md:grid-cols-2">
         <div>
-          <div className="inline-block border border-gray-400 text-gray-500 rounded-full px-4 py-1 text-xs uppercase tracking-widest mb-6">
-            Contact
-          </div>
+          <span className="inline-flex rounded-full border border-black/15 px-4 py-1 text-xs uppercase tracking-[0.24em] text-black/60">
+            {contactPageContent.eyebrow}
+          </span>
 
-          <h2 className="text-4xl font-extrabold text-gray-900 leading-snug mb-6">
-            Let's talk about <br />
-            what you need <br />
-            to build.
-          </h2>
+          <h1 className="mt-6 max-w-lg text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">
+            {contactPageContent.title}
+          </h1>
 
-          <p className="text-gray-500 text-sm leading-7 mb-10">
-            Whether you're exploring a new product, integrating telecom
-            services, or need a technology partner — fill in the form and we'll
-            get back to you within one business day.
+          <p className="mb-10 mt-6 max-w-xl text-base leading-8 text-black/58">
+            {contactPageContent.description}
           </p>
 
-          {/* Info Cards */}
           <div className="space-y-3">
-            <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-2xl px-5 py-4">
-              <span className="text-gray-400 mt-0.5">📍</span>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">
-                  Address
-                </p>
-                <p className="text-sm text-gray-700">
-                  88, Norman Williams Street, Ikoyi, Lagos, Nigeria
-                </p>
+            {contactMethods.map((method) => (
+              <div
+                key={method.label}
+                className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4"
+              >
+                <span className="mt-0.5 text-gray-400">{method.icon}</span>
+                <div>
+                  <p className="mb-1 text-xs uppercase tracking-widest text-gray-400">
+                    {method.label}
+                  </p>
+                  <p className="text-sm text-gray-700">{method.value}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-2xl px-5 py-4">
-              <span className="text-gray-400 mt-0.5">✉️</span>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">
-                  Email
-                </p>
-                <p className="text-sm text-gray-700">info@technotrendng.com</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-2xl px-5 py-4">
-              <span className="text-gray-400 mt-0.5">📞</span>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">
-                  Phone
-                </p>
-                <p className="text-sm text-gray-700">+234 01-6323541</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Response time */}
-          <div className="flex items-center gap-2 mt-6">
-            <span className="w-2 h-2 rounded-full bg-[#aaee00]"></span>
-            <p className="text-xs text-gray-500 uppercase tracking-widest">
-              We respond within 1 business day
+          <div className="mt-6 flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#aaee00]" />
+            <p className="text-xs uppercase tracking-widest text-gray-500">
+              {contactPageContent.responseTime}
             </p>
           </div>
         </div>
 
-        {/* Right - Form */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8">
-          <div className="grid grid-cols-2 gap-4 mb-4">
+        <form
+          action={formAction}
+          method="get"
+          className="rounded-2xl border border-gray-200 bg-white p-8"
+        >
+          <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">
+              <label className="mb-1 block text-xs text-gray-600">
                 Full name*
               </label>
               <input
                 type="text"
+                name="subject"
                 placeholder="Ada Okonkwo"
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-400"
+                required
+                autoComplete="name"
+                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
               />
             </div>
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">
+              <label className="mb-1 block text-xs text-gray-600">
                 Email address*
               </label>
               <input
                 type="email"
+                name="cc"
                 placeholder="ada@company.com"
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-400"
+                required
+                autoComplete="email"
+                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">
+              <label className="mb-1 block text-xs text-gray-600">
                 Phone number
               </label>
               <input
                 type="tel"
                 placeholder="+234 801 000 0000"
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-400"
+                autoComplete="tel"
+                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
               />
             </div>
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">
+              <label className="mb-1 block text-xs text-gray-600">
                 Company / Organisation
               </label>
               <input
                 type="text"
                 placeholder="Your company name"
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-400"
+                autoComplete="organization"
+                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
               />
             </div>
           </div>
 
           <div className="mb-4">
-            <label className="text-xs text-gray-600 mb-1 block">
+            <label className="mb-1 block text-xs text-gray-600">
               What are you interested in?*
             </label>
-            <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-400 outline-none focus:border-gray-400">
+            <select
+              required
+              className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-600 outline-none transition focus:border-gray-400"
+            >
               <option value="">Select an option</option>
-              <option>Telecom Services</option>
-              <option>Digital Products</option>
-              <option>AI & Automation</option>
-              <option>Technology Integration</option>
-              <option>Health IT</option>
+              {contactPageContent.interests.map((interest) => (
+                <option key={interest}>{interest}</option>
+              ))}
             </select>
           </div>
 
           <div className="mb-6">
-            <label className="text-xs text-gray-600 mb-1 block">
+            <label className="mb-1 block text-xs text-gray-600">
               Tell us about your project*
             </label>
             <textarea
+              name="body"
               rows={5}
+              required
               placeholder="Describe what you're trying to build, the problem you're solving, or any questions you have..."
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-gray-400 resize-none"
+              className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
             />
           </div>
 
           <div className="flex items-center justify-between">
-            <p className="text-xs text-gray-400">
-              Fields marked * are required.
+            <p className="max-w-xs text-xs text-gray-400">
+              Fields marked * are required. Submitting opens your mail client so no inquiry data is silently stored in the browser.
             </p>
-            <button className="bg-gray-900 text-white text-sm px-6 py-3 rounded-full hover:bg-gray-700 transition">
+            <button
+              type="submit"
+              className="rounded-full bg-gray-900 px-6 py-3 text-sm text-white transition hover:bg-gray-700"
+            >
               Send inquiry
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );
