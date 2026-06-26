@@ -1,28 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechnoTrend Frontend
 
-## Getting Started
+Marketing frontend for TechnoTrend Platforms Nigeria Limited, built with Next.js App Router and TypeScript.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+
+## Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+app/
+  layout.tsx
+  page.tsx
+  contact/page.tsx
+components/
+  pages/
+  ui/
+  *.tsx
+lib/
+  routes.ts
+  site.ts
+public/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture Notes
 
-## Learn More
+- `app/` owns routing and page metadata.
+- `components/pages/home-page.tsx` composes the home route sections.
+- `lib/site.ts` centralizes site copy, navigation, contact details, and marketing section data.
+- `lib/routes.ts` centralizes route and section href generation.
+- shared UI primitives live in `components/ui/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Security Baseline
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`next.config.ts` sets:
+
+- `poweredByHeader: false`
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` for unused browser capabilities
+- `Cross-Origin-Opener-Policy: same-origin`
+
+## Content Changes
+
+Because marketing content is centralized in `lib/site.ts`, navigation labels, contact details, service lists, product cards, and partner entries can now be updated from one place.

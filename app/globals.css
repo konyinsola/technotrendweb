@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  font-family: 'Manrope'
+}
+
+a {
+  text-underline-offset: 0.2em;
 }

@@ -1,54 +1,27 @@
-const stackItems = [
-  {
-    title: "Telecom Services",
-    tags: ["IVR", "USSD", "SMS", "Call Collect", "StarCall"],
-  },
-  {
-    title: "Digital Products",
-    tags: ["HomeInteriors", "Autobrand", "24/7 Rides"],
-  },
-  {
-    title: "AI & Automation",
-    tags: ["Cognitive services", "Prediction", "Workflow intelligence"],
-  },
-  {
-    title: "Integration Layer",
-    tags: ["APIs", "Enterprise systems", "Mobile networks"],
-  },
-];
+import { homePageContent, siteConfig } from '@/lib/site';
 
-export default function stack() {
+export default function Stack() {
+  const { stack } = homePageContent;
+
   return (
     <section className="py-24 px-6">
-      <div className="max-w-5xl mx-auto bg-[#11130f] rounded-[28px] p-8 md:p-12 shadow-2xl">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+      <div className="mx-auto max-w-6xl rounded-[28px] bg-[#11130f] p-8 shadow-2xl md:p-12">
+        <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-lime-400"></span>
-            <span
-              className="text-lime-400 "
-              style={{
-                fontFamily: "'Manrope', sans-serif",
-                fontWeight: 600,
-                fontSize: "18px",
-                lineHeight: "16.5px",
-                letterSpacing: "1.1px",
-                fontStyle: "semibold",
-              }}
-            >
-              Technotrend Platform Stack
+            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            <span className="text-lg font-semibold tracking-[0.08em] text-lime-400">
+              {stack.title}
             </span>
           </div>
 
           <div className="flex gap-2">
-            <span className="w-2 h-2 rounded-full bg-lime-400"></span>
-            <span className="w-2 h-2 rounded-full bg-gray-600"></span>
+            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            <span className="h-2 w-2 rounded-full bg-gray-600" />
           </div>
         </div>
 
-        {/* Cards */}
         <div className="grid md:grid-cols-2 gap-5">
-          {stackItems.map((item) => (
+          {stack.items.map((item) => (
             <div
               key={item.title}
               className="bg-[#1b1d19] border border-[#2c2e29] rounded-2xl p-5"
@@ -69,11 +42,11 @@ export default function stack() {
           ))}
         </div>
         <div className="flex justify-between items-center mt-10 text-[10px] uppercase tracking-[0.2em]">
-          <span className="text-gray-500">TechnoTrend.ng • Lagos, Nigeria</span>
+          <span className="text-gray-500">{siteConfig.url.replace(/^https?:\/\//, '')} • {siteConfig.contact.city}</span>
 
           <div className="flex items-center gap-2 text-lime-400">
-            <span className="w-2 h-2 rounded-full bg-lime-400"></span>
-            <span>All Systems Active</span>
+            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            <span>{stack.statusLabel}</span>
           </div>
         </div>
       </div>

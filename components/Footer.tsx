@@ -1,147 +1,104 @@
-import Link from "next/link";
+import Link from 'next/link';
+
+import SiteLogo from '@/components/ui/site-logo';
+import { HOME_SECTION_IDS, buildSectionHref } from '@/lib/routes';
+import { siteConfig } from '@/lib/site';
+
+const companyLinks = [
+  { label: 'About', href: buildSectionHref(HOME_SECTION_IDS.about) },
+  { label: 'Services', href: buildSectionHref(HOME_SECTION_IDS.services) },
+  { label: 'Products', href: buildSectionHref(HOME_SECTION_IDS.products) },
+  { label: 'Partners', href: buildSectionHref(HOME_SECTION_IDS.partners) },
+] as const;
+
+const serviceLinks = [
+  'Carrier Grade Services',
+  'Mobile & Web Applications',
+  'AI & Automation',
+  'Technology Integration',
+  'Health IT',
+] as const;
+
+const productLinks = ['HomeInteriors', 'RealProperties', 'Autobrand', '24/7 Rides'] as const;
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 px-10 pt-16 pb-8">
-      {/* Top Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
-        {/* Logo + Tagline */}
+    <footer className="bg-gray-900 px-10 pb-8 pt-16 text-gray-400">
+      <div className="mx-auto mb-16 grid max-w-6xl grid-cols-2 gap-10 md:grid-cols-5">
         <div className="col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            <img src="/logo.svg" alt="logo" className="w-8 h-8" />
+          <div className="mb-4 invert">
+            <SiteLogo />
           </div>
-          <p className="text-xs leading-6 text-gray-500 max-w-\[160px]\">
-            Full-service IT and telecoms business services company based in
-            Lagos, Nigeria.
+          <p className="max-w-[180px] text-xs leading-6 text-gray-500">
+            Full-service IT and telecoms business services company based in Lagos, Nigeria.
           </p>
         </div>
 
-        {/* Company */}
         <div>
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
-            Company
-          </p>
+          <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">Company</p>
           <ul className="space-y-3 text-xs">
-            <li>
-              <Link href="#about" className="hover:text-white transition">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="#services" className="hover:text-white transition">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="#products" className="hover:text-white transition">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="#partners" className="hover:text-white transition">
-                Partners
-              </Link>
-            </li>
+            {companyLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="transition hover:text-white">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Services */}
         <div>
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
-            Services
-          </p>
+          <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">Services</p>
           <ul className="space-y-3 text-xs">
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Carrier Grade Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Mobile & Web Applications
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                AI & Automation
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Technology Integration
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Health IT
-              </a>
-            </li>
+            {serviceLinks.map((service) => (
+              <li key={service}>
+                <span className="text-gray-500">{service}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Products */}
         <div>
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
-            Products
-          </p>
+          <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">Products</p>
           <ul className="space-y-3 text-xs">
-            <li>
-              <a href="#" className="hover:text-white transition">
-                HomeInteriors
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Autobrand
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                24/7 Rides
-              </a>
-            </li>
+            {productLinks.map((product) => (
+              <li key={product}>
+                <span className="text-gray-500">{product}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Contact */}
         <div>
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
-            Contact
-          </p>
+          <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">Contact</p>
           <ul className="space-y-3 text-xs">
             <li className="flex items-start gap-2">
               <span>📍</span>
-              <span>88, Norman Williams Street, Ikoyi, Lagos, Nigeria</span>
+              <span>{siteConfig.contact.address}</span>
             </li>
             <li className="flex items-center gap-2">
               <span>✉️</span>
-              <span>info@technotrendng.com</span>
+              <span>{siteConfig.contact.email}</span>
             </li>
             <li className="flex items-center gap-2">
               <span>📞</span>
-              <span>+234 01-6323541</span>
+              <span>{siteConfig.contact.phone}</span>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Big Watermark Text */}
-      <div className="max-w-6xl mx-auto overflow-hidden mb-6">
-        <p className="text-[80px] md:text-[120px] font-extrabold text-gray-800 leading-none select-none">
-          TechnoTrend
+      <div className="mx-auto mb-6 max-w-6xl overflow-hidden">
+        <p className="select-none text-[80px] font-extrabold leading-none text-gray-800 md:text-[120px]">
+          {siteConfig.shortName}
         </p>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="max-w-6xl mx-auto flex items-center justify-between border-t border-gray-800 pt-6">
-        <p className="text-xs text-gray-600">
-          © 2026 TechnoTrend Platforms Nigeria Limited. All rights reserved.
-        </p>
+      <div className="mx-auto flex max-w-6xl items-center justify-between border-t border-gray-800 pt-6">
+        <p className="text-xs text-gray-600">© 2026 {siteConfig.name}. All rights reserved.</p>
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#aaee00]"></span>
-          <span className="text-xs text-gray-500 uppercase tracking-widest">
-            Lagos, Nigeria
-          </span>
+          <span className="h-2 w-2 rounded-full bg-[#aaee00]" />
+          <span className="text-xs uppercase tracking-widest text-gray-500">{siteConfig.contact.city}</span>
         </div>
       </div>
     </footer>
