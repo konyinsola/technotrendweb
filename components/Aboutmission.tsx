@@ -23,7 +23,7 @@ const values = [
 
 export default function Aboutmission() {
   return (
-    <section className="w-full pt-24 pb-24">
+    <section className="w-full pt-16 pb-16 lg:pt-24 lg:pb-24">
       <div className="max-w-7xl mx-auto px-6">
         <p
           className="font-jetbrains-mono uppercase text-gray-500 text-center"
@@ -38,24 +38,18 @@ export default function Aboutmission() {
         </p>
 
         <h2
-          className="font-manrope text-center mx-auto mt-4"
-          style={{
-            width: 760,
-            fontWeight: 800,
-            fontSize: "44px",
-            lineHeight: "48.4px",
-            letterSpacing: "-1.8px",
-          }}
+          className="font-manrope text-center mx-auto mt-4 max-w-[760px] text-[26px] leading-[32px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[44px] lg:leading-[48.4px] lg:tracking-[-1.8px]"
+          style={{ fontWeight: 800 }}
         >
           To enable every African business with the digital tools and
           infrastructure needed to operate at global standards.
         </h2>
 
-        <div className="grid grid-cols-2 gap-6 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-10 lg:mt-16">
           {values.map((value) => (
             <div
               key={value.title}
-              className="bg-gray-50 rounded-2xl p-8"
+              className="bg-gray-50 rounded-2xl p-6 sm:p-8"
             >
               <div
                 className="flex items-center justify-center"
@@ -82,11 +76,9 @@ export default function Aboutmission() {
               </p>
 
               <p
-                className="font-inter mt-2 text-gray-500"
+                className="font-inter mt-2 text-gray-500 text-[14px] leading-[24px] sm:text-[15px] sm:leading-[26px]"
                 style={{
                   fontWeight: 400,
-                  fontSize: "15px",
-                  lineHeight: "26px",
                   letterSpacing: "0px",
                 }}
               >

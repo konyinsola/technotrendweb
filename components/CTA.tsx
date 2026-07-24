@@ -7,42 +7,44 @@ export default function CTA() {
   const { cta } = homePageContent;
 
   return (
-    <section className=" px-6 py-24 text-center">
+    <section className="px-6 py-16 sm:py-20 lg:py-24 text-center">
       <div className="max-w-5xl mx-auto">
-       
-
         {/* Heading */}
         <div className="w-full flex justify-center">
-  <h2
-    className="
-      font-manrope
-      font-medium
-      text-[42px]
-      leading-[64.2px]
-      tracking-[-2.4px]
-      text-center
-      text-[#080A07]
-    "
-    style={{
-      width: "727px",
-      height: "129px",
-    }}
-  >
-    Let&apos;s create the system your business
-    <br />
-    needs next.
-  </h2>
-</div>
+          <h2
+            className="
+              font-manrope
+              font-medium
+              text-[28px]
+              leading-[36px]
+              tracking-[-1px]
+              sm:text-[34px]
+              sm:leading-[46px]
+              sm:tracking-[-1.6px]
+              lg:text-[42px]
+              lg:leading-[64.2px]
+              lg:tracking-[-2.4px]
+              text-center
+              text-[#080A07]
+              max-w-[727px]
+              mx-auto
+            "
+          >
+            Let&apos;s create the system your business
+            <br className="hidden lg:block" />
+            needs next.
+          </h2>
+        </div>
 
         {/* Subtext */}
-        <p className="text-[#6F7169] font-inter text-[16px] text-center  mb-10">
-          Talk to us about your technology goals — we'll find the right approach
-          together.
+        <p className="text-[#6F7169] font-inter text-[15px] sm:text-[16px] text-center max-w-[420px] sm:max-w-none mx-auto mt-4 mb-10">
+          Talk to us about your technology goals — we&apos;ll find the right
+          approach together.
         </p>
 
-       <Link
+        <Link
           href="/contact"
-          className="bg-[#1565FF] text-white text-center rounded-full px-6 py-2.5 font-manrope font-bold text-[13px] leading-[19.5px] tracking-[-0.13px]"
+          className="inline-block bg-[#1565FF] text-white text-center rounded-full px-6 py-2.5 font-manrope font-bold text-[13px] leading-[19.5px] tracking-[-0.13px]"
         >
           Contact us
         </Link>
