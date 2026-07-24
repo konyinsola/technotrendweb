@@ -1,6 +1,6 @@
-import SectionShell from '@/components/ui/section-shell';
-import { HOME_SECTION_IDS } from '@/lib/routes';
-import { homePageContent } from '@/lib/site';
+import SectionShell from "@/components/ui/section-shell";
+import { HOME_SECTION_IDS } from "@/lib/routes";
+import { homePageContent } from "@/lib/site";
 
 export default function TelecomProducts() {
   const { telecomProducts } = homePageContent;
@@ -8,7 +8,6 @@ export default function TelecomProducts() {
   return (
     <SectionShell
       id={HOME_SECTION_IDS.telecomProducts}
-      eyebrow={telecomProducts.eyebrow}
       title={telecomProducts.title}
     >
       <div className="mx-auto max-w-6xl">
@@ -18,14 +17,12 @@ export default function TelecomProducts() {
               key={product.title}
               className={`rounded-2xl p-8 ${
                 product.emphasized
-                  ? 'bg-gray-900 text-white'
-                  : 'border border-gray-200 bg-white text-gray-900'
+                  ? "bg-gray-900 text-white"
+                  : "border border-gray-200 bg-white text-gray-900"
               }`}
             >
               <p
-                className={`text-xs uppercase tracking-widest mb-3 ${
-                  'text-gray-400'
-                }`}
+                className={`text-xs uppercase tracking-widest mb-3 ${"text-gray-400"}`}
               >
                 {product.label}
               </p>
@@ -33,7 +30,7 @@ export default function TelecomProducts() {
               <div className="flex items-center gap-3 mb-5">
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${
-                    product.emphasized ? 'bg-[#1e2a1e]' : 'bg-gray-100'
+                    product.emphasized ? "bg-[#1e2a1e]" : "bg-gray-100"
                   }`}
                 >
                   {product.icon}
@@ -43,7 +40,7 @@ export default function TelecomProducts() {
 
               <p
                 className={`text-sm leading-7 mb-6 ${
-                  product.emphasized ? 'text-gray-400' : 'text-gray-500'
+                  product.emphasized ? "text-gray-400" : "text-gray-500"
                 }`}
               >
                 {product.description}
@@ -55,8 +52,8 @@ export default function TelecomProducts() {
                     key={tag}
                     className={`text-xs px-3 py-1 rounded-full border ${
                       product.emphasized
-                        ? 'border-gray-700 text-gray-300'
-                        : 'border-gray-300 text-gray-600'
+                        ? "border-gray-700 text-gray-300"
+                        : "border-gray-300 text-gray-600"
                     }`}
                   >
                     {tag}

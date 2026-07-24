@@ -9,8 +9,7 @@ html {
 }
 
 body {
-  text-rendering: optimizeLegibility;
-  font-family: 'Manrope'
+  font-family: "Manrope";
 }
 
 a {

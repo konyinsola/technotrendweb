@@ -1,39 +1,30 @@
-import Link from 'next/link';
 
-import { homePageContent } from '@/lib/site';
 
 export default function Hero() {
-  const { hero } = homePageContent;
-
   return (
-    <section className="px-6 pt-20">
-      <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
-        <span className="rounded-full bg-[#1f2a1f] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#B7F34A]">
-          {hero.eyebrow}
-        </span>
+    <section className="relative w-full overflow-hidden ">
+      <div className="relative max-w-360 mx-auto">
+        
 
-        <h1 className="mt-8 max-w-5xl text-5xl font-black tracking-tight text-[#080A07] md:text-7xl md:leading-[1.05]">
-          {hero.titleLines.map((line) => (
-            <span key={line} className="block">
-              {line}
+        <div className="relative z-10 max-w-5xl mx-auto text-center pt-20 pb-24 px-4">
+          <h1 className="font-manrope font-semibold text-[48px] leading-13.25 tracking-[-2.3px]">
+            <span className="text-black">We build digital systems that help</span>
+            <br />
+            <span className="bg-[linear-gradient(31.84deg,#1565FF_34.68%,#080A07_98.03%)] bg-clip-text text-transparent">
+              businesses connect and scale
             </span>
-          ))}
-          <span className="inline-block rounded-full bg-[#11130F] px-4 py-1 text-[#B7F34A] md:px-5">
-            {hero.highlightedWord}
-          </span>
-          <span className="block">{hero.closingLine}</span>
-        </h1>
+          </h1>
 
-        <p className="mt-8 max-w-3xl text-lg leading-8 text-black/60">
-          {hero.description}
-        </p>
+          <p className="font-manrope font-normal text-[17px] leading-[30.26px] tracking-normal text-gray-500 mt-6 max-w-155 mx-auto">
+            TPNL provides telecom solutions, mobile and web applications,
+            AI-enabled systems, and digital product development for
+            businesses across Africa.
+          </p>
 
-        <Link
-          href={hero.ctaHref}
-          className="mt-10 inline-flex rounded-full border border-black/15 bg-white px-8 py-4 text-sm font-semibold text-[#080A07] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-        >
-          {hero.ctaLabel}
-        </Link>
+          <button className="mt-8 bg-[#1565FF] text-white text-sm rounded-[10px] pt-3.25 pr-5 pb-3.25 pl-5">
+            Let&apos;s work with you
+          </button>
+        </div>
       </div>
     </section>
   );
