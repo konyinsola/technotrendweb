@@ -16,7 +16,6 @@ function ServiceBlock({
   title,
   description,
   points,
-  linkLabel,
   bgImage,
   tags,
   imageLeft,
@@ -140,19 +139,6 @@ function ServiceBlock({
         ))}
       </ul>
 
-      <Link
-        href="/"
-        className="font-manrope inline-block"
-        style={{
-          fontWeight: 600,
-          fontSize: "14px",
-          lineHeight: "21px",
-          letterSpacing: "0px",
-          color: "#1565FF",
-        }}
-      >
-        {linkLabel} →
-      </Link>
     </div>
   );
 

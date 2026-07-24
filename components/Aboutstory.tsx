@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Aboutstory() {
   return (
-    <section className="w-full pt-24 pb-24">
-      <div className="max-w-288.5 mx-auto flex items-start justify-between gap-20">
-        <div className="max-w-146.25">
+    <section className="w-full pt-16 pb-16 lg:pt-24 lg:pb-24">
+      <div className="max-w-288.5 mx-auto px-6 flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-20">
+        <div className="w-full lg:max-w-146.25">
           <p
             className="font-jetbrains-mono uppercase text-gray-500"
             style={{
@@ -18,26 +18,15 @@ export default function Aboutstory() {
           </p>
 
           <h2
-            className="font-manrope mt-3"
-            style={{
-              width: 585,
-              fontWeight: 800,
-              fontSize: "40px",
-              lineHeight: "44.8px",
-              letterSpacing: "-1.8px",
-            }}
+            className="font-manrope mt-3 max-w-[585px] text-[28px] leading-[34px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[40px] lg:leading-[44.8px] lg:tracking-[-1.8px]"
+            style={{ fontWeight: 800 }}
           >
             From telecoms to full-stack digital technology.
           </h2>
 
           <div
-            className="font-inter mt-6 flex flex-col gap-5 text-gray-600"
-            style={{
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: "28px",
-              letterSpacing: "0px",
-            }}
+            className="font-inter mt-6 flex flex-col gap-5 text-gray-600 text-[15px] leading-[26px] sm:text-[16px] sm:leading-[28px]"
+            style={{ fontWeight: 400, letterSpacing: "0px" }}
           >
             <p>
               TechnoTrend Platforms Nigeria Limited was founded by a team of
@@ -62,12 +51,8 @@ export default function Aboutstory() {
         </div>
 
         <div
-          className="relative shrink-0"
+          className="relative shrink-0 w-full h-[220px] sm:h-[280px] lg:w-[440px] lg:h-[330px] rounded-[20px]"
           style={{
-            width: "100%",
-            maxWidth: "440px",
-            height: "330px",
-            borderRadius: "20px",
             background: "linear-gradient(135deg, #C8DBFF 0%, #D6DAE2 100%)",
           }}
         >

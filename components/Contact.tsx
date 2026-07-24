@@ -21,12 +21,24 @@ const contactMethods = [
   },
 ] as const;
 
+const MIN_MESSAGE_LENGTH = 100;
+
 export default function Contact() {
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+  const [messageTouched, setMessageTouched] = useState(false);
+
+  const messageTooShort = message.trim().length < MIN_MESSAGE_LENGTH;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setMessageTouched(true);
+
+    if (messageTooShort) {
+      return;
+    }
 
     const form = e.currentTarget;
     const data = {
@@ -56,6 +68,8 @@ export default function Contact() {
       setStatus("success");
       form.reset();
       setAgreed(false);
+      setMessage("");
+      setMessageTouched(false);
     } catch {
       setStatus("error");
     }
@@ -211,9 +225,33 @@ export default function Contact() {
               name="message"
               rows={5}
               required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onBlur={() => setMessageTouched(true)}
               placeholder="Describe what you're trying to build, the problem you're solving, or any questions you have..."
-              className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-gray-400"
+              className={`w-full resize-none rounded-xl border px-4 py-3 text-sm outline-none transition ${
+                messageTouched && messageTooShort
+                  ? "border-red-400 focus:border-red-500"
+                  : "border-gray-200 focus:border-gray-400"
+              }`}
             />
+            <div className="mt-1 flex items-center justify-between">
+              {messageTouched && messageTooShort ? (
+                <p className="text-xs text-red-500">
+                  Please write at least {MIN_MESSAGE_LENGTH} characters (
+                  {MIN_MESSAGE_LENGTH - message.trim().length} more needed).
+                </p>
+              ) : (
+                <span />
+              )}
+              <p
+                className={`text-xs ${
+                  messageTooShort ? "text-gray-400" : "text-green-600"
+                }`}
+              >
+                {message.trim().length} / {MIN_MESSAGE_LENGTH}
+              </p>
+            </div>
           </div>
 
           <div className="mb-6 flex items-start gap-3">
@@ -235,7 +273,7 @@ export default function Contact() {
             </p>
             <button
               type="submit"
-              disabled={!agreed || status === "loading"}
+              disabled={!agreed || status === "loading" || messageTooShort}
               className="rounded-full bg-gray-900 px-6 py-3 text-sm text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === "loading" ? "Sending..." : "Send inquiry"}
