@@ -6,7 +6,7 @@ export default function Aboutstory() {
       <div className="max-w-288.5 mx-auto px-6 flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-20">
         <div className="w-full lg:max-w-146.25">
           <p
-            className="font-jetbrains-mono uppercase text-gray-500"
+            className="font-['DM_Serif_Display'] uppercase text-gray-500"
             style={{
               fontWeight: 700,
               fontSize: "11px",
@@ -18,14 +18,14 @@ export default function Aboutstory() {
           </p>
 
           <h2
-            className="font-manrope mt-3 max-w-[585px] text-[28px] leading-[34px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[40px] lg:leading-[44.8px] lg:tracking-[-1.8px]"
+            className="font-['DM_Serif_Display']e mt-3 max-w-[585px] text-[28px] leading-[34px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[40px] lg:leading-[44.8px] lg:tracking-[-1.8px]"
             style={{ fontWeight: 800 }}
           >
             From telecoms to full-stack digital technology.
           </h2>
 
           <div
-            className="font-inter mt-6 flex flex-col gap-5 text-gray-600 text-[15px] leading-[26px] sm:text-[16px] sm:leading-[28px]"
+            className="font-['DM_Serif_Display'] mt-6 flex flex-col gap-5 text-gray-600 text-[15px] leading-[26px] sm:text-[16px] sm:leading-[28px]"
             style={{ fontWeight: 400, letterSpacing: "0px" }}
           >
             <p>

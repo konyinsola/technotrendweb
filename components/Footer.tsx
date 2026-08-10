@@ -23,13 +23,13 @@ const productLinks = ['HomeInteriors', 'RealProperties', 'Autobrand', '24/7 Ride
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 px-10 pb-8 pt-16 text-gray-400">
-      <div className="mx-auto mb-16 grid max-w-6xl grid-cols-2 gap-10 md:grid-cols-5">
-        <div className="col-span-2 md:col-span-1">
-          <div className="mb-4 invert">
+    <footer className="bg-gray-900 px-6 sm:px-10 pb-6 pt-10 sm:pt-12 text-gray-400">
+      <div className="mx-auto mb-8 sm:mb-10 grid max-w-6xl grid-cols-2 gap-8 sm:gap-10 md:grid-cols-3 lg:grid-cols-5">
+        <div className="col-span-2 md:col-span-3 lg:col-span-1">
+          <div className="mb-4 ">
             <SiteLogo />
           </div>
-          <p className="max-w-[180px] text-xs leading-6 text-gray-500">
+          <p className="max-w-[220px] sm:max-w-[280px] lg:max-w-[180px] text-xs leading-6 text-gray-500">
             Full-service IT and telecoms business services company based in Lagos, Nigeria.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">Contact</p>
           <ul className="space-y-3 text-xs">
             <li className="flex items-start gap-2">
@@ -78,7 +78,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <span>✉️</span>
-              <span>{siteConfig.contact.email}</span>
+              <span className="break-all">{siteConfig.contact.email}</span>
             </li>
             <li className="flex items-center gap-2">
               <span>📞</span>
@@ -88,13 +88,27 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mb-6 max-w-6xl overflow-hidden">
-        <p className="select-none text-[80px] font-extrabold leading-none text-gray-800 md:text-[120px]">
-          {siteConfig.shortName}
-        </p>
+      <div className="mx-auto mb-4 max-w-6xl overflow-hidden">
+        <svg
+          viewBox="0 0 1000 100"
+          className="w-full h-auto block"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <text
+            x="0"
+            y="85"
+            textLength="1000"
+            lengthAdjust="spacingAndGlyphs"
+            className="fill-gray-800"
+            style={{ fontWeight: 800, fontSize: "100px" }}
+          >
+            {siteConfig.shortName}
+          </text>
+        </svg>
       </div>
 
-      <div className="mx-auto flex max-w-6xl items-center justify-between border-t border-gray-800 pt-6">
+      <div className="mx-auto flex max-w-6xl flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-gray-800 pt-5">
         <p className="text-xs text-gray-600">© 2026 {siteConfig.name}. All rights reserved.</p>
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-[#aaee00]" />

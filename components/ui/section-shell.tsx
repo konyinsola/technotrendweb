@@ -6,6 +6,7 @@ type SectionShellProps = {
   title?: string;
   description?: string;
   className?: string;
+  titleClassName?: string;
   children: ReactNode;
   align?: "left" | "center";
 };
@@ -16,6 +17,7 @@ export default function SectionShell({
   title,
   description,
   className = "",
+  titleClassName = "",
   children,
   align = "left",
 }: SectionShellProps) {
@@ -35,7 +37,9 @@ export default function SectionShell({
               </span>
             ) : null}
             {title ? (
-              <h2 className="text-4xl font-bold tracking-tight text-[#080A07] md:text-5xl">
+              <h2
+                className={`text-4xl font-bold tracking-tight text-[#080A07] md:text-5xl ${titleClassName}`}
+              >
                 {title}
               </h2>
             ) : null}

@@ -76,30 +76,30 @@ export default function Contact() {
   }
 
   return (
-    <section className="px-6 py-12">
+    <section className="px-4 sm:px-6 py-8 sm:py-12">
       {status === "success" && (
-        <div className="fixed right-6 top-6 z-50 rounded-2xl bg-[#aaee00] px-6 py-4 text-sm font-medium text-black shadow-lg">
-          Message sent! We'll get back to you shortly.
+        <div className="fixed font-['DM_Serif_Display'] left-4 right-4 top-4 sm:left-auto sm:right-6 sm:top-6 z-50 rounded-2xl bg-[#aaee00] px-5 py-4 sm:px-6 text-sm font-medium text-black shadow-lg">
+          Message sent! We&apos;ll get back to you shortly.
         </div>
       )}
 
       {status === "error" && (
-        <div className="fixed right-6 top-6 z-50 rounded-2xl bg-red-500 px-6 py-4 text-sm font-medium text-white shadow-lg">
+        <div className="fixed left-4 right-4 top-4 sm:left-auto sm:right-6 sm:top-6 z-50 rounded-2xl bg-red-500 px-5 py-4 sm:px-6 text-sm font-medium text-white shadow-lg">
           Something went wrong. Please try again.
         </div>
       )}
 
-      <div className="mx-auto grid max-w-6xl items-start gap-16 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl font-['DM_Serif_Display'] items-start gap-10 sm:gap-12 md:gap-16 md:grid-cols-2">
         <div>
           <span className="inline-flex rounded-full border border-black/15 px-4 py-1 text-xs uppercase tracking-[0.24em] text-black/60">
             {contactPageContent.eyebrow}
           </span>
 
-          <h1 className="mt-6 max-w-lg text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">
+          <h1 className="mt-5 sm:mt-6 max-w-lg text-[28px] leading-[34px] sm:text-4xl sm:leading-tight font-extrabold text-gray-900 md:text-5xl">
             {contactPageContent.title}
           </h1>
 
-          <p className="mb-10 mt-6 max-w-xl text-base leading-8 text-black/58">
+          <p className="mb-8 sm:mb-10 mt-4 sm:mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8 text-black/58">
             {contactPageContent.description}
           </p>
 
@@ -107,14 +107,14 @@ export default function Contact() {
             {contactMethods.map((method) => (
               <div
                 key={method.label}
-                className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4"
+                className="flex items-start gap-3 sm:gap-4 rounded-2xl border border-gray-200 bg-white px-4 sm:px-5 py-3 sm:py-4"
               >
                 <span className="mt-0.5 text-gray-400">{method.icon}</span>
-                <div>
+                <div className="min-w-0">
                   <p className="mb-1 text-xs uppercase tracking-widest text-gray-400">
                     {method.label}
                   </p>
-                  <p className="text-sm text-gray-700">{method.value}</p>
+                  <p className="text-sm text-gray-700 break-words">{method.value}</p>
                 </div>
               </div>
             ))}
@@ -130,9 +130,9 @@ export default function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-gray-200 bg-white p-8"
+          className="rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 md:p-8"
         >
-          <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mb-4 font-['DM_Serif_Display'] grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1 block text-xs text-gray-600">
                 Full name*
@@ -161,7 +161,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1 block text-xs text-gray-600">
                 Phone number
@@ -235,7 +235,7 @@ export default function Contact() {
                   : "border-gray-200 focus:border-gray-400"
               }`}
             />
-            <div className="mt-1 flex items-center justify-between">
+            <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               {messageTouched && messageTooShort ? (
                 <p className="text-xs text-red-500">
                   Please write at least {MIN_MESSAGE_LENGTH} characters (
@@ -260,21 +260,21 @@ export default function Contact() {
               id="consent"
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
-              className="mt-1 h-4 w-4 cursor-pointer accent-gray-900"
+              className="mt-1 h-4 w-4 cursor-pointer accent-gray-900 shrink-0"
             />
             <label htmlFor="consent" className="text-xs leading-5 text-gray-500">
               I agree to TechnoTrend Platforms processing my data to respond to this inquiry. No data is stored beyond what is needed to reply.
             </label>
           </div>
 
-          <div className="flex items-center justify-between">
-            <p className="max-w-xs text-xs text-gray-400">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="max-w-xs text-xs text-gray-400 order-2 sm:order-1">
               Fields marked * are required.
             </p>
             <button
               type="submit"
               disabled={!agreed || status === "loading" || messageTooShort}
-              className="rounded-full bg-gray-900 px-6 py-3 text-sm text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full sm:w-auto order-1 sm:order-2 rounded-full bg-gray-900 px-6 py-3 text-sm text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === "loading" ? "Sending..." : "Send inquiry"}
             </button>

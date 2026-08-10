@@ -1,17 +1,40 @@
+const telecomProducts = {
+  eyebrow: "Telecom Products",
+  title: "Telecom products built for real mobile users.",
+  items: [
+    {
+      label: "Callback Service",
+      icon: "📲",
+      title: "StarCall",
+      description:
+        "A callback service that allows subscribers to notify another user to call them back when they have low or no airtime.",
+      tags: ["Low airtime", "Free to send", "Real-time notification"],
+      emphasized: true,
+    },
+    {
+      label: "Collect Call Service",
+      icon: "📞",
+      title: "Call Collect",
+      description:
+        "A collect-call service that allows a subscriber to place a call even with low balance, while the receiving party accepts the charge.",
+      tags: ["Zero balance", "Party acceptance", "Carrier-grade"],
+      emphasized: false,
+    },
+  ],
+};
+
 import SectionShell from "@/components/ui/section-shell";
 import { HOME_SECTION_IDS } from "@/lib/routes";
-import { homePageContent } from "@/lib/site";
 
 export default function TelecomProducts() {
-  const { telecomProducts } = homePageContent;
-
   return (
     <SectionShell
       id={HOME_SECTION_IDS.telecomProducts}
       title={telecomProducts.title}
+      titleClassName="font-['DM_Serif_Display'] font-normal"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mx-auto max-w-6xl font-['DM_Serif_Display']">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-['DM_Serif_Display']">
           {telecomProducts.items.map((product) => (
             <div
               key={product.title}
@@ -22,7 +45,7 @@ export default function TelecomProducts() {
               }`}
             >
               <p
-                className={`text-xs uppercase tracking-widest mb-3 ${"text-gray-400"}`}
+                className={`text-xs uppercase tracking-widest mb-3 font-['DM_Serif_Display'] ${"text-gray-400"}`}
               >
                 {product.label}
               </p>
@@ -35,11 +58,13 @@ export default function TelecomProducts() {
                 >
                   {product.icon}
                 </div>
-                <h3 className="text-xl font-bold">{product.title}</h3>
+                <h3 className="text-xl font-semibold font-['DM_Serif_Display']">
+                  {product.title}
+                </h3>
               </div>
 
               <p
-                className={`text-sm leading-7 mb-6 ${
+                className={`text-sm leading-7 mb-6 font-['DM_Serif_Display'] ${
                   product.emphasized ? "text-gray-400" : "text-gray-500"
                 }`}
               >
@@ -50,7 +75,7 @@ export default function TelecomProducts() {
                 {product.tags.map((tag) => (
                   <span
                     key={tag}
-                    className={`text-xs px-3 py-1 rounded-full border ${
+                    className={`text-xs px-3 py-1 rounded-full border font-['DM_Serif_Display'] ${
                       product.emphasized
                         ? "border-gray-700 text-gray-300"
                         : "border-gray-300 text-gray-600"

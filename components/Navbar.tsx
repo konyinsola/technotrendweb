@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "About us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Products", href: "/products" },
 ];
 
 export default function Navbar() {
@@ -23,14 +22,14 @@ export default function Navbar() {
         <Image
           src="/logo.png"
           alt="Logo"
-          width={45}
-          height={38}
+          width={50}
+          height={50}
           priority
         />
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex items-center gap-94.5">
+      <div className="hidden lg:flex items-center gap-94.5 font-['DM_Serif_Display']">
         <ul className="flex items-center gap-10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -54,7 +53,7 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className={`text-center rounded-full px-6 py-2.5 font-manrope font-bold text-[13px] leading-[19.5px] tracking-[-0.13px] ${
+          className={`text-center rounded-full px-6 py-2.5 font-['DM_Serif_Display']font-bold text-[13px] leading-[19.5px] tracking-[-0.13px] ${
             pathname === "/contact"
               ? "bg-[#0D4ED8]"
               : "bg-[#1565FF]"
@@ -68,7 +67,7 @@ export default function Navbar() {
       <div className="flex items-center gap-3 lg:hidden">
         <Link
           href="/contact"
-          className="bg-[#1565FF] text-white text-center rounded-full px-5 py-2.5 font-manrope font-bold text-[13px]"
+          className="bg-[#1565FF] text-white text-center rounded-full px-5 py-2.5 font-['DM_Serif_Display'] font-bold text-[13px]"
         >
           Contact us
         </Link>
@@ -86,7 +85,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-4 right-4 bg-white rounded-xl shadow-lg p-5 z-50 lg:hidden">
+        <div className="absolute top-16 left-4 right-4 bg-white font-['DM_Serif_Display'] rounded-xl shadow-lg p-5 z-50 lg:hidden">
           <ul className="flex flex-col gap-5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

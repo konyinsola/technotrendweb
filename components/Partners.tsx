@@ -16,7 +16,7 @@ export default function Partners() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-12">
+        <h2 className="text-3xl font-['DM_Serif_Display'] font-extrabold text-gray-900 mb-12">
           Trusted across the telecom ecosystem.
         </h2>
 

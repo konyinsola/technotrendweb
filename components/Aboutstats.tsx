@@ -15,14 +15,14 @@ export default function Aboutstats() {
         background: "#F9FAFB",
       }}
     >
-      <div className="max-w-[1154px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 lg:gap-0">
+      <div className="max-w-[1154px] mx-auto px-4 sm:px-6 grid grid-cols-2 gap-y-8 gap-x-2 sm:flex sm:items-center sm:justify-between sm:gap-4 lg:gap-0">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center flex-1 min-w-0"
+            className="flex flex-col items-center sm:flex-1 min-w-0"
           >
             <p
-              className="font-manrope text-center whitespace-nowrap"
+              className="font-['DM_Serif_Display'] text-center whitespace-nowrap"
               style={{
                 fontWeight: 800,
                 letterSpacing: "-1px",
@@ -34,13 +34,13 @@ export default function Aboutstats() {
             </p>
 
             <p
-              className="font-inter mt-2 text-gray-500 text-center"
+              className="font-['DM_Serif_Display'] mt-2 text-gray-500 text-center"
               style={{
                 fontWeight: 400,
                 letterSpacing: "0px",
               }}
             >
-              <span className="text-[10px] leading-[14px] sm:text-[12px] sm:leading-[18px] lg:text-[14px] lg:leading-[21px] block truncate">
+              <span className="text-[10px] font-['DM_Serif_Display'] leading-[14px] sm:text-[12px] sm:leading-[18px] lg:text-[14px] lg:leading-[21px] block px-1">
                 {stat.label}
               </span>
             </p>

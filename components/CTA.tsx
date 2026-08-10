@@ -13,8 +13,8 @@ export default function CTA() {
         <div className="w-full flex justify-center">
           <h2
             className="
-              font-manrope
-              font-medium
+              font-['DM_Serif_Display']
+              font-normal
               text-[28px]
               leading-[36px]
               tracking-[-1px]
@@ -37,14 +37,14 @@ export default function CTA() {
         </div>
 
         {/* Subtext */}
-        <p className="text-[#6F7169] font-inter text-[15px] sm:text-[16px] text-center max-w-[420px] sm:max-w-none mx-auto mt-4 mb-10">
+        <p className="text-[#6F7169] font-['DM_Serif_Display'] text-[15px] sm:text-[16px] text-center max-w-[420px] sm:max-w-none mx-auto mt-4 mb-10">
           Talk to us about your technology goals — we&apos;ll find the right
           approach together.
         </p>
 
         <Link
           href="/contact"
-          className="inline-block bg-[#1565FF] text-white text-center rounded-full px-6 py-2.5 font-manrope font-bold text-[13px] leading-[19.5px] tracking-[-0.13px]"
+          className="inline-block bg-[#1565FF] text-white text-center rounded-full px-6 py-2.5 font-['DM_Serif_Display'] font-bold text-[13px] leading-[19.5px] tracking-[-0.13px]"
         >
           Contact us
         </Link>

@@ -26,7 +26,7 @@ export default function Aboutmission() {
     <section className="w-full pt-16 pb-16 lg:pt-24 lg:pb-24">
       <div className="max-w-7xl mx-auto px-6">
         <p
-          className="font-jetbrains-mono uppercase text-gray-500 text-center"
+          className="font-['DM_Serif_Display'] uppercase text-gray-500 text-center"
           style={{
             fontWeight: 700,
             fontSize: "11px",
@@ -38,7 +38,7 @@ export default function Aboutmission() {
         </p>
 
         <h2
-          className="font-manrope text-center mx-auto mt-4 max-w-[760px] text-[26px] leading-[32px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[44px] lg:leading-[48.4px] lg:tracking-[-1.8px]"
+          className="font-['DM_Serif_Display'] text-center mx-auto mt-4 max-w-[760px] text-[26px] leading-[32px] tracking-[-1px] sm:text-[32px] sm:leading-[38px] sm:tracking-[-1.3px] lg:text-[44px] lg:leading-[48.4px] lg:tracking-[-1.8px]"
           style={{ fontWeight: 800 }}
         >
           To enable every African business with the digital tools and
@@ -64,7 +64,7 @@ export default function Aboutmission() {
               </div>
 
               <p
-                className="font-manrope mt-4"
+                className="font-['DM_Serif_Display'] mt-4"
                 style={{
                   fontWeight: 800,
                   fontSize: "18px",
@@ -76,7 +76,7 @@ export default function Aboutmission() {
               </p>
 
               <p
-                className="font-inter mt-2 text-gray-500 text-[14px] leading-[24px] sm:text-[15px] sm:leading-[26px]"
+                className="font-['DM_Serif_Display'] mt-2 text-gray-500 text-[14px] leading-[24px] sm:text-[15px] sm:leading-[26px]"
                 style={{
                   fontWeight: 400,
                   letterSpacing: "0px",
