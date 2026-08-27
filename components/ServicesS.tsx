@@ -40,7 +40,7 @@ function ServiceBlock({
 
   const image = (
     <div
-      className={`relative shrink-0 overflow-hidden w-full lg:max-w-[484px] hero-fade-in ${
+      className={`relative shrink-0 overflow-hidden w-full lg:max-w-121 hero-fade-in ${
         isVisible ? "hero-fade-in-visible" : ""
       } ${imageLeft ? "lg:order-1" : "lg:order-2"}`}
       style={{
@@ -191,7 +191,7 @@ const services = [
 
 export default function ServicesS() {
   return (
-    <section className="w-full py-24 flex flex-col gap-24">
+    <section className="w-full py-20 flex flex-col gap-24">
       <style>{`
         .hero-fade-in {
           opacity: 0;

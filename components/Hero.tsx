@@ -4,12 +4,12 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
       <div className="relative max-w-360 mx-auto">
-        <Image
+        {/* <Image
           src="/box1.png"
           alt=""
           width={78}
           height={69}
-          className="absolute z-0 pointer-events-none select-none border rounded-[6px]"
+          className="absolute z-0 pointer-events-none select-none border rounded-md"
           style={{ top: "15.42px", left: "28px" }}
         />
 
@@ -27,7 +27,7 @@ export default function Hero() {
           alt=""
           width={78}
           height={69}
-          className="absolute z-0 pointer-events-none select-none border rounded-[6px]"
+          className="absolute z-0 pointer-events-none select-none border rounded-md"
           style={{ top: "353.42px", left: "940px" }}
         />
 
@@ -47,7 +47,7 @@ export default function Hero() {
           height={143}
           className="absolute z-0 pointer-events-none select-none rounded-[3.27px]"
           style={{ top: "290.3px", left: "1156.83px" }}
-        />
+        /> */}
 
         <div className="relative z-10 max-w-5xl mx-auto text-center pt-20 pb-24 px-4">
           <h1 className="font-['DM_Serif_Display'] font-semibold text-[48px] leading-13.25 tracking-[-2.3px]">
