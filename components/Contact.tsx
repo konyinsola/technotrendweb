@@ -25,7 +25,9 @@ const MIN_MESSAGE_LENGTH = 100;
 
 export default function Contact() {
   const [agreed, setAgreed] = useState(false);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [message, setMessage] = useState("");
   const [messageTouched, setMessageTouched] = useState(false);
 
@@ -46,9 +48,11 @@ export default function Contact() {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
-      interest: (form.elements.namedItem("interest") as HTMLSelectElement).value,
+      interest: (form.elements.namedItem("interest") as HTMLSelectElement)
+        .value,
       subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
       website: "",
       startedAt: Date.now(),
       consent: true,
@@ -57,11 +61,14 @@ export default function Contact() {
     setStatus("loading");
 
     try {
-      const res = await fetch("https://6bpf9xg5-4000.uks1.devtunnels.ms/api/v1/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        "https://api.dev.technotrendng.com/api/v1/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        },
+      );
 
       if (!res.ok) throw new Error("Failed");
 
@@ -95,7 +102,7 @@ export default function Contact() {
             {contactPageContent.eyebrow}
           </span>
 
-          <h1 className="mt-5 sm:mt-6 max-w-lg text-[28px] leading-[34px] sm:text-4xl sm:leading-tight font-extrabold text-gray-900 md:text-5xl">
+          <h1 className="mt-5 sm:mt-6 max-w-lg text-[28px] leading-8.5 sm:text-4xl sm:leading-tight font-extrabold text-gray-900 md:text-5xl">
             {contactPageContent.title}
           </h1>
 
@@ -114,7 +121,9 @@ export default function Contact() {
                   <p className="mb-1 text-xs uppercase tracking-widest text-gray-400">
                     {method.label}
                   </p>
-                  <p className="text-sm text-gray-700 break-words">{method.value}</p>
+                  <p className="text-sm text-gray-700 wrap-break-word">
+                    {method.value}
+                  </p>
                 </div>
               </div>
             ))}
@@ -205,9 +214,7 @@ export default function Contact() {
           </div>
 
           <div className="mb-4">
-            <label className="mb-1 block text-xs text-gray-600">
-              Subject*
-            </label>
+            <label className="mb-1 block text-xs text-gray-600">Subject*</label>
             <input
               type="text"
               name="subject"
@@ -262,8 +269,12 @@ export default function Contact() {
               onChange={(e) => setAgreed(e.target.checked)}
               className="mt-1 h-4 w-4 cursor-pointer accent-gray-900 shrink-0"
             />
-            <label htmlFor="consent" className="text-xs leading-5 text-gray-500">
-              I agree to TechnoTrend Platforms processing my data to respond to this inquiry. No data is stored beyond what is needed to reply.
+            <label
+              htmlFor="consent"
+              className="text-xs leading-5 text-gray-500"
+            >
+              I agree to TechnoTrend Platforms processing my data to respond to
+              this inquiry. No data is stored beyond what is needed to reply.
             </label>
           </div>
 
